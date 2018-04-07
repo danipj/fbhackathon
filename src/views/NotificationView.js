@@ -10,7 +10,6 @@ export default class NotificationView extends Component {
 
   render() {
     return (<div>
-    			<a href='/'> Voltar </a>
 	    		<h1>Notifications</h1>
 	    		<ListGroup style={{margin:'30px'}}>
 	          		<ListGroupItem tag="button" action>Fulano sugeriu um audio para sua foto<Button style={{float:'right'}}>Avaliar</Button></ListGroupItem>
