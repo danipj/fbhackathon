@@ -10,6 +10,9 @@ class App extends Component {
           forceRefresh={false}>
           <Switch>
             <Route exact path="/login" component={LoginView} />
+            <Route component={FeedView}/>
+            <Route exact path="/notifications" component={NotificationView}/>
+            <Route exact path="/settings" component={SettingsView}/>
           </Switch>
       </BrowserRouter>
     );
