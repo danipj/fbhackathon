@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { ListGroup, ListGroupItem, Button } from 'reactstrap';
-import { Link } from 'react-router-dom';
 
 export default class NotificationView extends Component {
 
@@ -10,7 +9,7 @@ export default class NotificationView extends Component {
 
   render() {
     return (<div>
-	    		<h1>Notifications</h1>
+	    		<div style={{textAlign:'center'}}><h2>Notifications</h2></div>
 	    		<ListGroup style={{margin:'30px'}}>
 	          		<ListGroupItem tag="button" action>Fulano sugeriu um audio para sua foto<Button style={{float:'right'}}>Avaliar</Button></ListGroupItem>
 	          		<ListGroupItem tag="button" action>Fulano sugeriu um audio para sua foto<Button style={{float:'right'}}>Avaliar</Button></ListGroupItem>
