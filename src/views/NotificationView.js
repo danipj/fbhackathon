@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { ListGroup, ListGroupItem } from 'reactstrap';
+import { ListGroup, ListGroupItem, Button } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 export default class NotificationView extends Component {
 
@@ -9,12 +10,13 @@ export default class NotificationView extends Component {
 
   render() {
     return (<div>
+    			<a href='/'> Voltar </a>
 	    		<h1>Notifications</h1>
-	    		<ListGroup>
-	          		<ListGroupItem active tag="a" href="#" action>Cras justo odio</ListGroupItem>
-	          		<ListGroupItem tag="a" href="#" action>Dapibus ac facilisis in</ListGroupItem>
-			        <ListGroupItem tag="a" href="#" action>Morbi leo risus</ListGroupItem>
-			        <ListGroupItem tag="a" href="#" action>Porta ac consectetur ac</ListGroupItem>
+	    		<ListGroup style={{margin:'30px'}}>
+	          		<ListGroupItem tag="button" action>Fulano sugeriu um audio para sua foto<Button style={{float:'right'}}>Avaliar</Button></ListGroupItem>
+	          		<ListGroupItem tag="button" action>Fulano sugeriu um audio para sua foto<Button style={{float:'right'}}>Avaliar</Button></ListGroupItem>
+			        <ListGroupItem tag="button" action>Ciclano sugeriu um audio para sua foto<Button style={{float:'right'}}>Avaliar</Button></ListGroupItem>
+			        <ListGroupItem tag="button" action>Fulano sugeriu um audio para sua foto<Button style={{float:'right'}}>Avaliar</Button></ListGroupItem>
 	          	</ListGroup>
             </div>
           );
