@@ -19,4 +19,4 @@ export default class FeedView extends Component {
   }
 }
 
-export { LoginView };
+export { FeedView };
