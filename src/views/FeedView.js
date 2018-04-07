@@ -7,6 +7,7 @@ export default class FeedView extends Component {
   }
 
   render() {
+<<<<<<< HEAD
     return (      <div className="App">
         <header className="App-header">
           <h1 className="App-title">Welcome to React</h1>
@@ -20,3 +21,13 @@ export default class FeedView extends Component {
 }
 
 export { LoginView };
+=======
+    return (<div>
+      teste
+            </div>
+          );
+  }
+}
+
+export { FeedView };
+>>>>>>> f5ab6698d8a62834dc7b1daa8e354ed010160336
