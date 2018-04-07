@@ -17,7 +17,7 @@ export default class NavbarLinda extends React.Component {
     super(props);
 
     this.toggle = this.toggle.bind(this);
-    this.state = {
+    this.state = { 
       isOpen: false
     };
   }
@@ -29,7 +29,7 @@ export default class NavbarLinda extends React.Component {
   render() {
     return (
       <div>
-        <Navbar color="primary" light expand="sm">
+        <Navbar dark expand="sm" style={{backgroundColor: '#97396f'}}>
           <NavbarBrand href="/">projeto loco</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
