@@ -1,7 +1,6 @@
-import * as React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 
-export default class LoginView extends React.Component<any, any>  {
+export default class LoginView extends Component {
 
   constructor() {
     super();
@@ -10,7 +9,6 @@ export default class LoginView extends React.Component<any, any>  {
   render() {
     return (      <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <p className="App-intro">
@@ -18,6 +16,7 @@ export default class LoginView extends React.Component<any, any>  {
         </p>
         <p>Teste de ver como que worka</p>
       </div>);
-    );
   }
 }
+
+export { LoginView };
