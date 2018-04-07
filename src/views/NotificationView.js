@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class LoginView extends Component {
+export default class NotificationView extends Component {
 
   constructor() {
     super();
@@ -14,4 +14,4 @@ export default class LoginView extends Component {
   }
 }
 
-export { LoginView };
+export { NotificationView };
