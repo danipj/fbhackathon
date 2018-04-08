@@ -24,6 +24,8 @@ export default class LoginView extends Component {
       localStorage.setItem("userLogged", result.user);
       localStorage.setItem("userLoggedID", result.user.id);
       localStorage.setItem("accessToken", result.access_token);
+      localStorage.setItem("userLoggedUserName", result.user.username);
+      localStorage.setItem("userLoggedPicture", result.user.profile_picture);
 
       /*
         Save user to database
@@ -40,15 +42,14 @@ export default class LoginView extends Component {
               // if exists, update data
               if(u.id==result.user.id){
                 create = false;
-                fetch("http://localhost:3000/users/"+u.id,{
-                  "body": JSON.stringify(result.user),
-                  "method": "PUT",
-                  "headers":{
-                    "Accept":"application/json",
-                    "Content-Type":"application/json"
-                  }
-                }).then((response) => console.log(response.json()))
-
+                // fetch("http://localhost:3000/users/"+u.id,{
+                //   "body": JSON.stringify(result.user),
+                //   "method": "PUT",
+                //   "headers":{
+                //     "Accept":"application/json",
+                //     "Content-Type":"application/json"
+                //   }
+                // }).then((response) => console.log(response.json()))
               }
             })
 
@@ -70,7 +71,7 @@ export default class LoginView extends Component {
         redirect
       */
     });
-      this.context.router.history.push("/");
+    this.context.router.history.push("/");
   }
 
   render() {

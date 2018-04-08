@@ -7,7 +7,7 @@ export default class AudioPlayer extends Component {
 
 	render(){
 		return(
-			<section class="sound-return">
+			<section className="sound-return">
 				<article className='clip'>
 			      	<audio controls controlsList='nodownload' id={this.props.idAudio} src={localStorage.getItem(this.props.idAudio)}>
 			      	</audio>

@@ -28,6 +28,7 @@ class UploadView extends Component {
                             className="stop"><img style={{width:'100%', height:'10%'}}
                             src={require("../stop.png")} alt="mic" /></button>
                         </div>
+                        <input name="id" type="hidden" value="1" />
                     </section>
                     <section className="sound-clips"></section>
                 </div>
