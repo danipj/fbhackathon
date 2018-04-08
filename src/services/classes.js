@@ -37,7 +37,7 @@ window.onload = function() {
           var clipLabel = document.createElement('p');
           var audio = document.createElement('audio');
           var deleteButton = document.createElement('button');
-          var utilizar_audio = document.createElement('button');
+          var utilizar_audio = document.createElement( 'button');
           clipContainer.classList.add('clip');
       clipContainer.id='arc'
       audio.setAttribute('controls', '');
@@ -45,8 +45,6 @@ window.onload = function() {
   
       deleteButton.textContent = 'Delete';
       deleteButton.className = 'delete';
-
-     
       utilizar_audio.textContent='Utilizar';
       utilizar_audio.className = 'utilizar_audio';
 
