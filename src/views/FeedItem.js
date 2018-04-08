@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import { Button } from 'reactstrap';
+import { AudioPlayer } from './AudioPlayer';
 
 var user_style = {
     margin:'left',
@@ -48,7 +49,7 @@ export default class FeedItem extends Component {
                 {
                     this.props.audioID ?
                         <div className="audio_bar">
-                            <p>audio_bar</p>
+                            <AudioPlayer idAudio={this.props.audioID}/>
                         </div> 
                         : 
                         <div className="audio_bar">
