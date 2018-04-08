@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import FeedItem from './FeedItem.js';
+import axios from "axios";
 
 var content_feed={
   margin:'auto',
@@ -20,20 +21,49 @@ export default class FeedView extends Component {
 
   constructor() {
     super();
+
+    this.state = {
+      items: []
+    }
+  }
+
+  componentDidMount() {
+    var _this = this;
+    var accessToken = localStorage.getItem("accessToken")
+
+    axios.get("https://api.instagram.com/v1/media/search?lat=-22.822&lng=-47.08&access_token="+accessToken)
+    .then(function(res){
+      _this.setState({
+        items: res.data
+      });
+    })
+    .catch(function(e) {
+      console.log("ERROR ", e);
+    })
   }
 
   render() {
     var feedItems = [];
-    for (var i = posts.length - 1; i >= 0; i--) {
-      feedItems.push(<FeedItem key={i} value={posts[i]} />);
+
+    console.log(this.state.items)
+
+    if(this.state.items && this.state.items.data){
+    for (var i = this.state.items.data.length - 1; i >= 0; i--) {
+      console.log(i)
+      feedItems.push(<FeedItem key={i} value={{
+        user_name: this.state.items.data[i].user.username, 
+        path_user_pic: this.state.items.data[i].user.profile_picture,
+        path_pic: this.state.items.data[i], 
+        location_pic:'Facebook Hack'}} 
+      />);
     }
     return (
       <div style={content_feed} className="content_feed">
-        
+      JHGJGFTFT  
         {feedItems}
       </div>
     );
-  }
+  } else {return ("Carregando esta merda")}}
 }
 
 export { FeedView };
