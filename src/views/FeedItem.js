@@ -3,21 +3,18 @@ import { Container, Row, Col } from 'reactstrap';
 import { AudioPlayer } from './AudioPlayer';
 
 var user_style = {
-    margin:'left',
     borderRadius:'999%',
-    width:'15%',
-    height:'30%',
+    height:'80px',
     float: 'left',
 };
 
 var extra_info={
     size:'50%',
-    marginLeft:'50px',
     lineHeight:'20%'
 }
 var image_style={
     width:'100%',
-    marginTop:'10%'
+    marginTop:'10px'
 }
 
 export default class FeedItem extends Component {
@@ -30,9 +27,9 @@ export default class FeedItem extends Component {
             <div className='feed_item'>
                 <div className="user_icon">
                     <p><img style={user_style} alt="userIcon" 
-                        src={this.props.value.path_user_pic}></img></p>
+                        src={this.props.value.path_user_pic} /></p>
                 </div>
-                <div style={extra_info}className='extra_info'>
+                <div style={extra_info} className='extra_info'>
                     <div className="user_name">
                         <p style={{fontSize:'100%'}}><b>{this.props.value.user_name}</b></p>
                         <p style={{fontSize:'80%'}}>{this.props.value.location_pic}</p>

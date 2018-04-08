@@ -71,8 +71,7 @@ export default class ReviewView extends Component {
   render() {
     if(this.state.post && this.state.notification){
       return (
-        <div>
-          <div style={{textAlign:'center'}}><h2></h2></div>
+        <div >
           
           <FeedItem key={this.state.post.id} value={{
             user_name: this.state.post.postUserName, 
