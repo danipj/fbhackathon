@@ -59,6 +59,7 @@ window.onload = function() {
       var blob = new Blob(chunks, { 'type' : 'audio/ogg; codecs=opus' });
       chunks = [];
       var audioURL = window.URL.createObjectURL(blob);
+      var filename = audioURL.substring(audioURL.lastIndexOf('/')+1);
       audio.src = audioURL;
       console.log(audioURL);
       console.log("recorder stopped");
@@ -71,7 +72,7 @@ window.onload = function() {
 
 
       utilizar_audio.onclick = function(e) {
-        localStorage.setItem("foto1", audioURL);
+        localStorage.setItem(filename, audioURL);
       }
 
       clipLabel.onclick = function() {
