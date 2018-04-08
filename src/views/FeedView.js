@@ -92,6 +92,7 @@ export default class FeedView extends Component {
       for (var i = this.state.items.length - 1; i >= 0; i--) {
         
         feedItems.push(<FeedItem key={i} value={{
+          id: this.state.items[i].id,
           instagramID: this.state.items[i].instagramID, 
           user_name: this.state.items[i].postUserName, 
           path_user_pic: this.state.items[i].postUserProfilePicture,

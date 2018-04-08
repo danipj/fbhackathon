@@ -23,6 +23,7 @@ class UploadView extends Component {
                             <p />
                             <Button className="stop">Stop</Button>
                         </div>
+                        <input name="id" type="hidden" value="1" />
                     </section>
                     <section className="sound-clips"></section>
                 </div>

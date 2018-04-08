@@ -32,7 +32,7 @@ export default class FeedItem extends Component {
     }
     
     redirectToUpload(){
-        this.context.router.history.push('/upload/'+this.props.value.instagramID);
+        this.context.router.history.push('/upload/'+this.props.value.id);
     }
 
     render(){
