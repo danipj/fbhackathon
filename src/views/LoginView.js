@@ -22,9 +22,45 @@ export default class LoginView extends Component {
       localStorage.setItem("accessToken", result.access_token);
 
       /*
-        create or update user data
+        Save user to database
       */
-      
+      var create = true;
+      fetch("http://localhost:3000/users/",{
+        "method": "GET"
+      }).then((response) => {
+          response.json().then(users => {
+            
+            //Check if user already exists
+            users.map(function(u){
+
+              // if exists, update data
+              if(u.id==result.user.id){
+                create = false;
+                fetch("http://localhost:3000/users/"+u.id,{
+                  "body": JSON.stringify(result.user),
+                  "method": "PUT",
+                  "headers":{
+                    "Accept":"application/json",
+                    "Content-Type":"application/json"
+                  }
+                }).then((response) => console.log(response.json()))
+
+              }
+            })
+
+            // if doesnt exists, create new user
+            if(create){
+              fetch("http://localhost:3000/users/",{
+                "body": JSON.stringify(result.user),
+                "method": "POST",
+                "headers":{
+                  "Accept":"application/json",
+                  "Content-Type":"application/json"
+                }
+              }).then((response) => console.log(response.json()))
+            }
+          })
+      })
 
       /*
         redirect
