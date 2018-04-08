@@ -25,9 +25,6 @@ export default class FeedView extends Component {
       <div style={content_feed} className="content_feed">
         
         {feedItems}
-        <FeedItem/>
-        <FeedItem/>
-        <FeedItem/>
       </div>
     );
   }
