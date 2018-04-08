@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import FeedItem from './FeedItem.js';
 
+
 var content_feed={
   margin:'auto',
   width:'50%'
