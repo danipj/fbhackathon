@@ -64,10 +64,6 @@ export default class ReviewView extends Component {
       }
     })
   }
-
-
-
-
   render() {
     if(this.state.post && this.state.notification){
       return (

@@ -72,16 +72,23 @@ audio {
 }
 
 button.delete {
-  background:#b71c1c;
   display: inline-block;
-  font-weight: 400;
+  font-weight: 20;
   text-align: center;
   white-space: nowrap;
   vertical-align: middle;
-  padding: 0.5rem 0.75rem;
+  padding: 0.45rem 0.55rem;
   font-size: 0.8rem;
 }
-
+button.utilizar_audio {
+  display: inline-block;
+  font-weight: 13;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  padding: 0.45rem 0.55rem;
+  font-size: 0.8rem;
+}
 input[type=checkbox] {
   position: absolute;
   top: -100px;

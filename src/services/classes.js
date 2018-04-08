@@ -20,7 +20,8 @@ window.onload = function() {
         visualize(stream);
         record.onclick = function() {
           mediaRecorder.start();
-          record.style.background = "red";
+          record.style.background = "purple";
+          record.style.border="purple";
           stop.disabled = false;
           record.disabled = true;
         }
@@ -43,12 +44,23 @@ window.onload = function() {
       audio.setAttribute('controls', '');
       audio.setAttribute('controlsList','nodownload')
   
-      deleteButton.textContent = 'Delete';
+   
       deleteButton.className = 'delete';
-      utilizar_audio.textContent='Utilizar';
+     
       utilizar_audio.className = 'utilizar_audio';
 
+      var yes = document.createElement('img');
+      var no = document.createElement('img');
 
+      yes.setAttribute('src', require('../yes.png'));
+      yes.setAttribute('width','20px');
+      no.setAttribute('width','20px');
+      yes.setAttribute('height','20px');
+      no.setAttribute('height','20px');
+      no.setAttribute('src',require('../trash.png'));
+
+      deleteButton.appendChild(no);
+      utilizar_audio.appendChild(yes);
 
       clipContainer.appendChild(audio);
       clipContainer.appendChild(deleteButton);
@@ -122,11 +134,13 @@ function visualize(stream) {
 
     analyser.getByteTimeDomainData(dataArray);
 
-    canvasCtx.fillStyle = 'rgb(200, 200, 200)';
+    canvasCtx.fillStyle = 'rgb(151, 57, 111)';
+    canvasCtx.borderRadius='99%';
+    canvasCtx.width='50%';
     canvasCtx.fillRect(0, 0, window.WIDTH, window.HEIGHT);
 
     canvasCtx.lineWidth = 2;
-    canvasCtx.strokeStyle = 'rgb(0, 0, 0)';
+    canvasCtx.strokeStyle = '#FFF';
 
     canvasCtx.beginPath();
 
@@ -158,15 +172,16 @@ function pega_audio(){
     var clipContainerReturn = document.createElement('article');
     var clipLabelReturn = document.createElement('p');
     var audioReturn = document.createElement('audio');
+   
 
     clipContainerReturn.classList.add('clip');
     audioReturn.setAttribute('controls', '');
-    audioReturn.setAttribute('controlsList','nodownload')
-
-
+    audioReturn.setAttribute('controlsList','nodownload');
 
     clipContainerReturn.appendChild(audioReturn);
     soundReturn.appendChild(clipContainerReturn);
+
+   
 
     audioReturn.controls = true;
     audioReturn.src = localStorage.getItem("foto1");

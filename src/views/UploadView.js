@@ -5,6 +5,7 @@ import '../services/mediaDevices-getUserMedia-polyfill.js';
 
 var content={
     margin:'auto',
+    marginTop:'10%',
     width:'50%',
    
 }
@@ -19,9 +20,13 @@ class UploadView extends Component {
                         <canvas className="visualizer"></canvas>
                         </div>
                         <div id="buttons">
-                            <Button className="record">Record</Button>
-                            <p />
-                            <Button className="stop">Stop</Button>
+                            <button style={{width:'40px', borderRadius:'100%', background:'#FFF'}}
+                            className="record"><img style={{width:'100%', height:'10%'}}
+                            src={require("../mic.png")} alt="mic" /></button>
+
+                            <button style={{width:'40px', borderRadius:'100%', background:'#FFF'}}
+                            className="stop"><img style={{width:'100%', height:'10%'}}
+                            src={require("../stop.png")} alt="mic" /></button>
                         </div>
                     </section>
                     <section className="sound-clips"></section>

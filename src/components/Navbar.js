@@ -30,16 +30,16 @@ export default class NavbarLinda extends React.Component {
     return (
       <div>
         <Navbar dark expand="sm" style={{backgroundColor: '#97396f'}}>
-          <NavbarBrand href="/">projeto loco</NavbarBrand>
+          <NavbarBrand href="/">Instaudio</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="/notifications">notifications</NavLink>
+                <NavLink href="/notifications">Notificações</NavLink>
               </NavItem>
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>
-                  Options
+                  Opções
                 </DropdownToggle>
                 <DropdownMenu right>
                   <DropdownItem>

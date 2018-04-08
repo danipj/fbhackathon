@@ -9,8 +9,10 @@ var user_style = {
 };
 
 var extra_info={
+    marginLeft:'3.3%',
     size:'50%',
-    lineHeight:'20%'
+    lineHeight:'20%',
+    display: 'inline-block'
 }
 var image_style={
     width:'100%',
@@ -32,10 +34,7 @@ export default class FeedItem extends Component {
                 <div style={extra_info} className='extra_info'>
                     <div className="user_name">
                         <p style={{fontSize:'100%'}}><b>{this.props.value.user_name}</b></p>
-                        <p style={{fontSize:'80%'}}>{this.props.value.location_pic}</p>
-                        <button className='btn'>
-                        <img src="/open-iconic/svg/icon-name.svg" alt="icon name"/>
-                        </button>
+                        <p style={{fontSize:'75%'}}>{this.props.value.location_pic}</p>
                     </div>
                 </div>
                 
@@ -49,7 +48,7 @@ export default class FeedItem extends Component {
                         </div> 
                         : 
                         <div className="audio_bar">
-                            <p>request_audio</p>
+                            <p>Botão</p>
                         </div> 
                 }
             </div>
