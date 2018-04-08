@@ -65,11 +65,7 @@ export default class ReviewView extends Component {
     })
   }
 
-  pega_audio(idfoto){
-    return (<article className='clip'>
-      <audio controls controlsList='nodownload' id={idfoto} src={localStorage.getItem(idfoto)}>
-      </audio></article>);
-  }
+
 
 
   render() {
@@ -86,7 +82,6 @@ export default class ReviewView extends Component {
             audio_ID: this.state.post.audioID
           }}            
           />
-          
           <div style={{textAlign:'center'}}>
             <Button color="primary" onClick={this.approveAudio}> Aprovar </Button><p />
             <Button onClick={this.denyAudio}> Excluir </Button>
