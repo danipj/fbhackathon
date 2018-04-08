@@ -52,8 +52,6 @@ export default class FeedView extends Component {
         temp.push({instagramID: audio.instagramID, audioID: audio.audioID })
       })
 
-      console.log(temp);
-
       _this.setState({
         audios: temp
       });

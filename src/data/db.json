@@ -19,28 +19,30 @@
       "is_business": false
     }
   ],
-  "posts":[
+  "posts": [
     {
-      "postID":"1",
-      "instagramID":"1",
-      "audioID":"1",
-      "postUserID":"278194592",
-      "audioUserID":"3121519331",
-      "status":"APPROVED"
+      "postID": "1",
+      "instagramID": "1",
+      "audioID": "1",
+      "postUserID": "278194592",
+      "audioUserID": "3121519331",
+      "status": "APPROVED"
     }
   ],
-  "notifications":[
+  "notifications": [
     {
-      "postID":"1",
-      "userID":"278194592",
-      "text":"basquetefcem adicionou um audio para a sua foto",
-      "notification_type": "AUDIO_ADDED"      
+      "notificationID":"1",
+      "postID": "1",
+      "userID": "278194592",
+      "text": "basquetefcem adicionou um audio para a sua foto",
+      "notification_type": "AUDIO_ADDED"
     },
     {
-      "postID":"2",
-      "userID":"278194592",
-      "text":"danipj_ solicitou um audio para a sua foto",
-      "notification_type": "AUDIO_REQUEST"      
+      "notificationID":"2",
+      "postID": "2",
+      "userID": "3121519331",
+      "text": "danipj_ solicitou um audio para a sua foto",
+      "notification_type": "AUDIO_REQUEST"
     }
   ]
 }

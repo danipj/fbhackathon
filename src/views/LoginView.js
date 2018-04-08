@@ -22,6 +22,7 @@ export default class LoginView extends Component {
         save user session
       */
       localStorage.setItem("userLogged", result.user);
+      localStorage.setItem("userLoggedID", result.user.id);
       localStorage.setItem("accessToken", result.access_token);
 
       /*
