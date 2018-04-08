@@ -9,12 +9,15 @@ var user_style = {
     float: 'left',
 };
 
-    var extra_info={
-        margin:'12px'
-    }
-  var image_style={
+var extra_info={
+    size:'50%',
+    marginLeft:'50px',
+    lineHeight:'20%'
+}
+var image_style={
     width:'100%',
-  }
+    marginTop:'10%'
+}
 
 export default class FeedItem extends Component {
     constructor(){
@@ -28,23 +31,19 @@ export default class FeedItem extends Component {
                 </div>
                 <div style={extra_info}className='extra_info'>
                     <div className="user_name">
-                        <p style={{fontSize:'80%'}}>Tainá Turella</p>
-                    </div>
-                    <div className="image_place">
+                        <p style={{fontSize:'100%'}}><b>Tainá Turella</b></p>
                         <p style={{fontSize:'80%'}}>Facebook Hack</p>
                     </div>
-                    <div className="sharing_options">
-                        <p>sharing_options</p>
-                    </div>
                 </div>
-            <div className="image_from_insta">
-                <p><img style={image_style}src={require('./infos/37509081-picture.jpg')} alt="pictureImported" className="img-thumbnail"></img></p>
+                
+                <div style={image_style} className="image_from_insta">
+                    <p><img src={require('./infos/37509081-picture.jpg')} alt="pictureImported" className="img-thumbnail"></img></p>
+                </div>
+                <div className="audio_bar">
+                    <p>audio_bar</p>
+                </div>
             </div>
-            <div className="audio_bar">
-                <p>audio_bar</p>
-            </div>
-        </div>
-    );
+        );
     }
 }
 export { FeedItem };
