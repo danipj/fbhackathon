@@ -20,24 +20,26 @@ var image_style={
 }
 
 export default class FeedItem extends Component {
-    constructor(){
-        super();
+    
+    constructor(props){
+        super(props);
     }
     render(){
         return(
             <div className='feed_item'>
                 <div className="user_icon">
-                    <p><img style={user_style} alt="userIcon" src={require('./infos/perfil.jpg')}></img></p>
+                    <p><img style={user_style} alt="userIcon" 
+                        src={this.props.value.path_user_pic}></img></p>
                 </div>
                 <div style={extra_info}className='extra_info'>
                     <div className="user_name">
-                        <p style={{fontSize:'100%'}}><b>Tainá Turella</b></p>
-                        <p style={{fontSize:'80%'}}>Facebook Hack</p>
+                        <p style={{fontSize:'100%'}}><b>{this.props.value.user_name}</b></p>
+                        <p style={{fontSize:'80%'}}>{this.props.value.location_pic}</p>
                     </div>
                 </div>
                 
                 <div style={image_style} className="image_from_insta">
-                    <p><img src={require('./infos/37509081-picture.jpg')} alt="pictureImported" className="img-thumbnail"></img></p>
+                    <p><img src={this.props.value.path_pic} alt="pictureImported" className="img-thumbnail"></img></p>
                 </div>
                 <div className="audio_bar">
                     <p>audio_bar</p>
