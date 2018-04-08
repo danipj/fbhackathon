@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import FeedItem from './FeedItem.js';
 import axios from "axios";
+import PropTypes from "prop-types";
 
 var content_feed={
   margin:'auto',
@@ -18,9 +19,12 @@ var posts=[{user_name:'Tainá Turella', path_user_pic:'./infos/perfil.jpg',
           path_pic:'./infos/37509081-picture.jpg', location_pic:' Hack'}]
 
 export default class FeedView extends Component {
+    static contextTypes = {
+      router: PropTypes.object
+    }
 
-  constructor() {
-    super();
+  constructor(props,context) {
+    super(props,context);
 
     this.state = {
       items: []
@@ -30,22 +34,25 @@ export default class FeedView extends Component {
   componentDidMount() {
     var _this = this;
     var accessToken = localStorage.getItem("accessToken")
-
-    axios.get("https://api.instagram.com/v1/media/search?lat=-22.822&lng=-47.08&access_token="+accessToken)
-    .then(function(res){
-      _this.setState({
-        items: res.data
-      });
+    if(accessToken){
+      axios.get("https://api.instagram.com/v1/media/search?lat=-22.822&lng=-47.08&access_token="+accessToken)
+      .then(function(res){
+        _this.setState({
+          items: res.data
+        });
+      })
+      .catch(function(e) {
+        console.log("ERROR ", e);
     })
-    .catch(function(e) {
-      console.log("ERROR ", e);
-    })
+    }
   }
 
   render() {
     var feedItems = [];
 
-    console.log(this.state.items)
+    if(!localStorage.getItem("accessToken")){
+      this.context.router.history.push('/login');
+    }
 
     if(this.state.items && this.state.items.data){
     for (var i = this.state.items.data.length - 1; i >= 0; i--) {

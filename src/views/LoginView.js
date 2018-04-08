@@ -3,6 +3,9 @@ import { Button } from 'reactstrap';
 import PropTypes from "prop-types";
 
 export default class LoginView extends Component {
+    static contextTypes = {
+      router: PropTypes.object
+    }
 
   constructor(props, context) {
     super(props, context);
@@ -11,7 +14,7 @@ export default class LoginView extends Component {
   }
 
   onLoginButtonClick(){
-      window.OAuth.initialize('Y9Xb9oKFDroP5k_SY5Dxtdp1OOI')
+      window.OAuth.initialize('Y9Xb9oKFDroP5k_SY5Dxtdp1OOI');
 
       window.OAuth.popup('instagram').done(function(result) {      
       
@@ -65,11 +68,14 @@ export default class LoginView extends Component {
       /*
         redirect
       */
-      //this.context.router.history.push("/notifications");
-    })
+    });
+      this.context.router.history.push("/");
   }
 
   render() {
+    if(localStorage.getItem("accessToken")){
+      this.context.router.history.push('/');
+    }
     return (
       <div className="container text-center">
           <img className="mb-4" src="https://www.radiokorea.com/images/news/2017/08/14/265249/1.jpg" alt="" width="72" height="72" />
