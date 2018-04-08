@@ -41,7 +41,7 @@ export default class NotificationView extends Component {
 
 			for (var i = this.state.items.length - 1; i >= 0; i--) {
 				notifications.push(
-					<ListGroupItem key={this.state.items[i].notificationID} tag="button" action onClick={()=>this.context.router.history.push("/review/"+this.state.items[i].notificationID)}>
+					<ListGroupItem key={this.state.items[i].id} tag="button" action onClick={()=>this.context.router.history.push("/review/"+this.state.items[i].id)}>
 							{this.state.items[i].text}
 							<Badge style={{float:'right'}}>Avaliar</Badge>
 					</ListGroupItem>

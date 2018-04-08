@@ -21,24 +21,29 @@
   ],
   "posts": [
     {
-      "postID": "1",
+      "id": "1",
       "instagramID": "1",
-      "audioID": "1",
+      "status": "APPROVED",
+      "imageURL": "https://scontent.cdninstagram.com/vp/dc55dfe24a77c355ceb2cf3290675067/5B751C67/t51.2885-15/s640x640/sh0.08/e35/29415902_357722511391508_7099641456377200640_n.jpg",
       "postUserID": "278194592",
+      "postUserName": "natalhuda",
+      "postUserProfilePicture": "https://scontent.cdninstagram.com/vp/3bcb264b54268b19c34cbbc58b5d5d79/5B698204/t51.2885-19/s150x150/23594273_313382155808348_6303847075138240512_n.jpg",
+      "audioID": "1",
       "audioUserID": "3121519331",
-      "status": "APPROVED"
+      "audioUserName": "natalhuda",
+      "audioUserProfilePicture": "https://scontent.cdninstagram.com/vp/3bcb264b54268b19c34cbbc58b5d5d79/5B698204/t51.2885-19/s150x150/23594273_313382155808348_6303847075138240512_n.jpg"
     }
   ],
   "notifications": [
     {
-      "notificationID":"1",
+      "id": "1",
       "postID": "1",
       "userID": "278194592",
       "text": "basquetefcem adicionou um audio para a sua foto",
       "notification_type": "AUDIO_ADDED"
     },
     {
-      "notificationID":"2",
+      "id": "2",
       "postID": "2",
       "userID": "3121519331",
       "text": "danipj_ solicitou um audio para a sua foto",

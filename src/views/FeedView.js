@@ -33,7 +33,7 @@ export default class FeedView extends Component {
     var _this = this;
     var accessToken = localStorage.getItem("accessToken")
     if(accessToken){
-     axios.get("https://api.instagram.com/v1/media/search?lat=-22.822&lng=-47.08&distance=5000&access_token="+accessToken)
+    axios.get("https://api.instagram.com/v1/media/search?lat=-22.822&lng=-47.08&distance=5000&access_token="+accessToken)
     .then(function(res){
       _this.setState({
         items: res.data
@@ -86,7 +86,7 @@ export default class FeedView extends Component {
         {feedItems}
       </div>
     );
-  } else {return ("Carregando esta merda")}}
+  } else {return ("Carregando...")}}
 }
 
 export { FeedView };
