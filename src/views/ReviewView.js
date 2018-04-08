@@ -65,6 +65,13 @@ export default class ReviewView extends Component {
     })
   }
 
+  pega_audio(idfoto){
+    return (<article className='clip'>
+      <audio controls controlsList='nodownload' id={idfoto} src={localStorage.getItem(idfoto)}>
+      </audio></article>);
+  }
+
+
   render() {
     if(this.state.post && this.state.notification){
       return (

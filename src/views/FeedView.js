@@ -4,6 +4,7 @@ import FeedItem from './FeedItem.js';
 import axios from "axios";
 import PropTypes from "prop-types";
 
+
 var content_feed={
   margin:'auto',
   width:'50%'

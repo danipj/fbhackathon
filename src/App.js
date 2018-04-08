@@ -5,6 +5,7 @@ import { LoginView } from './views/LoginView';
 import { FeedView } from './views/FeedView';
 import { NotificationView } from './views/NotificationView';
 import { ReviewView } from './views/ReviewView';
+import {UploadView} from './views/UploadView';
 import { NavbarLinda } from './components/Navbar';
 
 class App extends Component {
@@ -17,7 +18,8 @@ class App extends Component {
             <Switch>
               <Route exact path="/login" component={LoginView} />
               <Route exact path="/notifications" component={NotificationView}/>
-              <Route exact path="/review/:id" component={ReviewView} />
+              <Route exact path="/review" component={ReviewView} />
+              <Route exact path="/upload" component={UploadView}/>
               <Route component={FeedView}/>
             </Switch>
         </BrowserRouter>
