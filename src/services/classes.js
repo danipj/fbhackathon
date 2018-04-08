@@ -2,32 +2,6 @@
 import axios from "axios";
 
 window.onload = function() {
-<<<<<<< HEAD
-  var record = document.querySelector('.record');
-  var stop = document.querySelector('.stop');
-  var soundClips = document.querySelector('.sound-clips');
-  var soundReturn = document.querySelector('.sound-return');
-  var canvas = document.querySelector('.visualizer');
-  var mainSection = document.querySelector('.main-controls');
-  
-  stop.disabled = true;
-  // visualiser setup - create web audio api context and canvas
-  var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-  var canvasCtx = canvas.getContext("2d");
-  //main block for doing the audio recording
-  if (navigator.mediaDevices.getUserMedia) {
-      var constraints = { audio: true };
-      var chunks = [];
-      var onSuccess = function(stream) {
-        var mediaRecorder = new MediaRecorder(stream);
-        visualize(stream);
-        record.onclick = function() {
-          mediaRecorder.start();
-          record.style.background = "purple";
-          record.style.border="purple";
-          stop.disabled = false;
-          record.disabled = true;
-=======
     var record = document.querySelector('.record');
     var stop = document.querySelector('.stop');
     var soundClips = document.querySelector('.sound-clips');
@@ -124,7 +98,6 @@ window.onload = function() {
             })
 
          })
->>>>>>> 354eeba5d74b3d79ee48663e052aae9bb5117bca
         }
   
         clipLabel.onclick = function() {
@@ -136,61 +109,6 @@ window.onload = function() {
             clipLabel.textContent = newClipName;
           }
         }
-<<<<<<< HEAD
-        mediaRecorder.onstop = function(e) {
-          var clipContainer = document.createElement('article');
-          var clipLabel = document.createElement('p');
-          var audio = document.createElement('audio');
-          var deleteButton = document.createElement('button');
-          var utilizar_audio = document.createElement( 'button');
-          clipContainer.classList.add('clip');
-      clipContainer.id='arc'
-      audio.setAttribute('controls', '');
-      audio.setAttribute('controlsList','nodownload')
-  
-   
-      deleteButton.className = 'delete';
-     
-      utilizar_audio.className = 'utilizar_audio';
-
-      var yes = document.createElement('img');
-      var no = document.createElement('img');
-
-      yes.setAttribute('src', require('../yes.png'));
-      yes.setAttribute('width','20px');
-      no.setAttribute('width','20px');
-      yes.setAttribute('height','20px');
-      no.setAttribute('height','20px');
-      no.setAttribute('src',require('../trash.png'));
-
-      deleteButton.appendChild(no);
-      utilizar_audio.appendChild(yes);
-
-      clipContainer.appendChild(audio);
-      clipContainer.appendChild(deleteButton);
-      clipContainer.appendChild(utilizar_audio);
-      soundClips.appendChild(clipContainer);
-
-      audio.controls = true;
-      var blob = new Blob(chunks, { 'type' : 'audio/ogg; codecs=opus' });
-      chunks = [];
-      var audioURL = window.URL.createObjectURL(blob);
-      var filename = audioURL.substring(audioURL.lastIndexOf('/')+1);
-      audio.src = audioURL;
-      console.log(audioURL);
-      console.log("recorder stopped");
-
-      deleteButton.onclick = function(e) {
-        record.disabled = false;
-        window.evtTgt = e.target;
-        window.evtTgt.parentNode.parentNode.removeChild(window.evtTgt.parentNode);
-      } 
-
-
-      utilizar_audio.onclick = function(e) {
-        localStorage.setItem(filename, audioURL);
-=======
->>>>>>> 354eeba5d74b3d79ee48663e052aae9bb5117bca
       }
   
       mediaRecorder.ondataavailable = function(e) {
@@ -207,63 +125,6 @@ window.onload = function() {
   } else {
      console.log('getUserMedia not supported on your browser!');
   }
-<<<<<<< HEAD
-
-  var onError = function(err) {
-    console.log('The following error occured: ' + err);
-  }
-
-  navigator.mediaDevices.getUserMedia(constraints).then(onSuccess, onError);
-
-} else {
-   console.log('getUserMedia not supported on your browser!');
-}
-
-function visualize(stream) {
-  var source = audioCtx.createMediaStreamSource(stream);
-
-  var analyser = audioCtx.createAnalyser();
-  analyser.fftSize = 2048;
-  var bufferLength = analyser.frequencyBinCount;
-  var dataArray = new Uint8Array(bufferLength);
-
-  source.connect(analyser);
-  //analyser.connect(audioCtx.destination);
-
-  draw()
-
-  function draw() {
-    window.WIDTH = canvas.width
-    window.HEIGHT = canvas.height;
-
-    requestAnimationFrame(draw);
-
-    analyser.getByteTimeDomainData(dataArray);
-
-    canvasCtx.fillStyle = 'rgb(151, 57, 111)';
-    canvasCtx.borderRadius='99%';
-    canvasCtx.width='50%';
-    canvasCtx.fillRect(0, 0, window.WIDTH, window.HEIGHT);
-
-    canvasCtx.lineWidth = 2;
-    canvasCtx.strokeStyle = '#FFF';
-
-    canvasCtx.beginPath();
-
-    var sliceWidth = window.WIDTH * 1.0 / bufferLength;
-    var x = 0;
-
-
-    for(var i = 0; i < bufferLength; i++) {
- 
-      var v = dataArray[i] / 128.0;
-      var y = v * window.HEIGHT/2;
-
-      if(i === 0) {
-        canvasCtx.moveTo(x, y);
-      } else {
-        canvasCtx.lineTo(x, y);
-=======
   
   function visualize(stream) {
     var source = audioCtx.createMediaStreamSource(stream);
@@ -310,7 +171,6 @@ function visualize(stream) {
         }
   
         x += sliceWidth;
->>>>>>> 354eeba5d74b3d79ee48663e052aae9bb5117bca
       }
   
       canvasCtx.lineTo(canvas.width, canvas.height/2);
@@ -318,37 +178,6 @@ function visualize(stream) {
   
     }
   }
-<<<<<<< HEAD
-}
-
-function pega_audio(){
-    var clipContainerReturn = document.createElement('article');
-    var clipLabelReturn = document.createElement('p');
-    var audioReturn = document.createElement('audio');
-   
-
-    clipContainerReturn.classList.add('clip');
-    audioReturn.setAttribute('controls', '');
-    audioReturn.setAttribute('controlsList','nodownload');
-
-    clipContainerReturn.appendChild(audioReturn);
-    soundReturn.appendChild(clipContainerReturn);
-
-   
-
-    audioReturn.controls = true;
-    audioReturn.src = localStorage.getItem("foto1");
-
-}
-
-window.onresize = function() {
-  canvas.width = mainSection.offsetWidth;
-}
-
-window.onresize();
-
-};
-=======
   
   function pega_audio(){
       var clipContainerReturn = document.createElement('article');
@@ -374,4 +203,3 @@ window.onresize();
   window.onresize();
   
   };
->>>>>>> 354eeba5d74b3d79ee48663e052aae9bb5117bca

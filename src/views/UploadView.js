@@ -11,6 +11,13 @@ var content={
 }
 
 class UploadView extends Component {
+
+    constructor(props) {
+        super(props);
+        const { match: { params } } = this.props;
+        this.params = params;
+    }
+
     render() {
         return (
             <div className="App">
@@ -28,7 +35,7 @@ class UploadView extends Component {
                             className="stop"><img style={{width:'100%', height:'10%'}}
                             src={require("../stop.png")} alt="mic" /></button>
                         </div>
-                        <input name="id" type="hidden" value="1" />
+                        <input name="id" type="hidden" value={this.params.id} />
                     </section>
                     <section className="sound-clips"></section>
                 </div>

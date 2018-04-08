@@ -61,9 +61,7 @@ export default class FeedItem extends Component {
                             <AudioPlayer idAudio={this.props.value.audio_ID}/>
                         </div> 
                         : 
-                        <div className="audio_bar">
-                            <p>Botão</p>
-                        </div> 
+                        ''
                 }
             </div>
         );
