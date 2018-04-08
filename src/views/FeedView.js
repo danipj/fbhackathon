@@ -43,7 +43,7 @@ export default class FeedView extends Component {
       console.log("ERROR ", e);
     })
 
-    axios.get("http://localhost:3000/posts/")
+    axios.get("http://localhost:3000/posts/?status=APPROVED")
     .then(function(res){
 
       var temp = [];

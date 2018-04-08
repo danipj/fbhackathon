@@ -41,9 +41,16 @@ export default class FeedItem extends Component {
                 <div style={image_style} className="image_from_insta">
                     <p><img src={this.props.value.path_pic} alt="pictureImported" className="img-thumbnail"></img></p>
                 </div>
-                <div className="audio_bar">
-                    <p>audio_bar</p>
-                </div>
+                {
+                    this.props.audioID ?
+                        <div className="audio_bar">
+                            <p>audio_bar</p>
+                        </div> 
+                        : 
+                        <div className="audio_bar">
+                            <p>request_audio</p>
+                        </div> 
+                }
             </div>
         );
     }
