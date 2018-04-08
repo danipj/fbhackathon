@@ -19,7 +19,7 @@ class App extends Component {
               <Route exact path="/login" component={LoginView} />
               <Route exact path="/notifications" component={NotificationView}/>
               <Route exact path="/review/:id" component={ReviewView} />
-              <Route exact path="/upload" component={UploadView}/>
+              <Route exact path="/upload/:id" component={UploadView}/>
               <Route component={FeedView}/>
             </Switch>
         </BrowserRouter>

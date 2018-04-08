@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
+import { Button } from 'reactstrap';
 import { AudioPlayer } from './AudioPlayer';
+import PropTypes from "prop-types";
 
 var user_style = {
     borderRadius:'999%',
@@ -18,10 +20,21 @@ var image_style={
 }
 
 export default class FeedItem extends Component {
-    
-    constructor(props){
-        super(props);
+
+    static contextTypes = {
+    router: PropTypes.object
     }
+    
+    constructor(props, context){
+        super(props, context);
+
+        this.redirectToUpload = this.redirectToUpload.bind(this)
+    }
+    
+    redirectToUpload(){
+        this.context.router.history.push('/upload/'+this.props.value.instagramID);
+    }
+
     render(){
         return(
             <div className='feed_item'>
@@ -33,19 +46,17 @@ export default class FeedItem extends Component {
                     <div className="user_name">
                         <p style={{fontSize:'100%'}}><b>{this.props.value.user_name}</b></p>
                         <p style={{fontSize:'80%'}}>{this.props.value.location_pic}</p>
-                        <button className='btn'>
-                        <img src="/open-iconic/svg/icon-name.svg" alt="icon name"/>
-                        </button>
+                        <Button color="primary" onClick={()=>this.redirectToUpload()}> Upload </Button><p />
                     </div>
                 </div>
                 
                 <div style={image_style} className="image_from_insta">
                     <p><img src={this.props.value.path_pic} alt="pictureImported" className="img-thumbnail"></img></p>
-                </div>
+                 </div>
                 {
-                    this.props.audioID ?
+                    this.props.value.audio_ID ?
                         <div className="audio_bar">
-                            <AudioPlayer idAudio={this.props.audioID}/>
+                            <AudioPlayer idAudio={this.props.value.audio_ID}/>
                         </div> 
                         : 
                         <div className="audio_bar">

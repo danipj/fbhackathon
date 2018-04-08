@@ -25,8 +25,7 @@ export default class FeedView extends Component {
     super(props,context);
 
     this.state = {
-      items: [],
-      audios: []
+      items: []
     }
   }
 
@@ -34,33 +33,52 @@ export default class FeedView extends Component {
     var _this = this;
     var accessToken = localStorage.getItem("accessToken")
     if(accessToken){
-    axios.get("https://api.instagram.com/v1/media/search?lat=-22.822&lng=-47.08&distance=5000&access_token="+accessToken)
+
+    axios.get("http://localhost:3000/posts/")
     .then(function(res){
       _this.setState({
         items: res.data
       });
     })
-    .catch(function(e) {
-      console.log("ERROR ", e);
-    })
 
-    axios.get("http://localhost:3000/posts/?status=APPROVED")
-    .then(function(res){
+    axios.get("https://api.instagram.com/v1/media/search?lat=-22.822&lng=-47.08&distance=5000&access_token="+accessToken)
+     .then(function(res){
 
-      var temp = [];
+        res.data.data.map((item, index) => {
+          
+          axios.get("http://localhost:3000/posts/?instagramID="+item.id)
+            .then(function(res1){
+              if(res1.data.length){
 
-      res.data.map((audio) => {
-        temp.push({instagramID: audio.instagramID, audioID: audio.audioID })
+              }
+              else{
+                var new_record = {
+                  audioID :0,
+                  audioUserID :0,
+                  audioUserName:null,
+                  audioUserProfilePicture:null,
+                  id:index,
+                  imageURL: item.images.standard_resolution.url,
+                  instagramID: item.id,
+                  postUserID: item.user.id,
+                  postUserName: item.user.username,
+                  postUserProfilePicture:profiles_pictures[item.user.username],
+                  status:"",
+                }
+
+                fetch("http://localhost:3000/posts/",{
+                  "body": JSON.stringify(new_record),
+                  "method": "POST",
+                  "headers":{
+                    "Accept":"application/json",
+                    "Content-Type":"application/json"
+                  }
+                })                
+              }
+            })           
+        })
       })
-
-      _this.setState({
-        audios: temp
-      });
-    })
-    .catch(function(e) {
-      console.log("ERROR ", e);
-    })
-  }
+    }
   }
 
   render() {
@@ -70,15 +88,15 @@ export default class FeedView extends Component {
       this.context.router.history.push('/login');
     }
 
-    if(this.state.items && this.state.items.data && this.state.audios){
-      for (var i = this.state.items.data.length - 1; i >= 0; i--) {
+    if(this.state.items && this.state.items.length){
+      for (var i = this.state.items.length - 1; i >= 0; i--) {
         
         feedItems.push(<FeedItem key={i} value={{
-          user_name: this.state.items.data[i].user.username, 
-          path_user_pic: profiles_pictures[this.state.items.data[i].user.username],
-          path_pic: this.state.items.data[i].images.standard_resolution.url, 
-          location_pic: this.state.items.data[i].location ? this.state.items.data[i].location.name : "",
-          audio_ID: this.state.audios[this.state.items.data[i].id]
+          instagramID: this.state.items[i].instagramID, 
+          user_name: this.state.items[i].postUserName, 
+          path_user_pic: this.state.items[i].postUserProfilePicture,
+          path_pic: this.state.items[i].imageURL, 
+          audio_ID: this.state.items[i].audioID
         }}            
         />);
     }

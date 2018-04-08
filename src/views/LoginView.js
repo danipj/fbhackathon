@@ -70,7 +70,7 @@ export default class LoginView extends Component {
         redirect
       */
     });
-      this.context.router.history.push("/");
+    this.context.router.history.push("/");
   }
 
   render() {

@@ -65,14 +65,10 @@ export default class ReviewView extends Component {
     })
   }
 
-
-
-
   render() {
     if(this.state.post && this.state.notification){
       return (
-        <div >
-          
+        <div className="container text-center"> 
           <FeedItem key={this.state.post.id} value={{
             user_name: this.state.post.postUserName, 
             path_user_pic: this.state.post.postUserProfilePicture,
@@ -81,9 +77,16 @@ export default class ReviewView extends Component {
             audio_ID: this.state.post.audioID
           }}            
           />
-          <div style={{textAlign:'center'}}>
-            <Button color="primary" onClick={this.approveAudio}> Aprovar </Button><p />
-            <Button onClick={this.denyAudio}> Excluir </Button>
+          <div className="text-center row">
+            <div className="col-md-6 col-md-offset-4">
+              <Button onClick={this.denyAudio}> Excluir </Button>
+            </div>
+            <div className="col-md-6 col-md-offset-4">
+              <Button color="primary" onClick={this.approveAudio}> Aprovar </Button>
+            </div>
+            <br />
+            <br />
+            <br />
           </div>
         </div>
       );
