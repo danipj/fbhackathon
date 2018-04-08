@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
+import { Button } from 'reactstrap';
 
 var user_style = {
     margin:'left',
@@ -36,7 +37,7 @@ export default class FeedItem extends Component {
                         <p style={{fontSize:'100%'}}><b>{this.props.value.user_name}</b></p>
                         <p style={{fontSize:'80%'}}>{this.props.value.location_pic}</p>
                         <button className='btn'>
-                        <img src="/open-iconic/svg/icon-name.svg" alt="icon name"/>
+                            <img src="/open-iconic/svg/plus.svg" alt="icon name"/>
                         </button>
                     </div>
                 </div>
