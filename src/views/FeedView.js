@@ -7,6 +7,9 @@ var content_feed={
   width:'50%'
 }
 
+var posts=[{user_name:'Tainá Turella', path_user_pic:'./infos/perfil.jpg',
+          path_pic:'./infos/37509081-picture.jpg', location_pic:'Facebook Hack'}]
+
 export default class FeedView extends Component {
 
   constructor() {
@@ -15,8 +18,9 @@ export default class FeedView extends Component {
 
   render() {
     return (
-      //For each image that we will recieve we need to put inside the same template of displaying
       <div style={content_feed} className="content_feed">
+        <FeedItem/>
+        <FeedItem/>
         <FeedItem/>
       </div>
     );
