@@ -17,11 +17,14 @@ export default class FeedView extends Component {
   }
 
   render() {
+    var feedItems = [];
+    for (var i = posts.length - 1; i >= 0; i--) {
+      feedItems.push(<FeedItem value={posts[i]} />);
+    }
     return (
       <div style={content_feed} className="content_feed">
-        <FeedItem/>
-        <FeedItem/>
-        <FeedItem/>
+        
+        {feedItems}
       </div>
     );
   }
